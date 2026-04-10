@@ -22,16 +22,16 @@ jobs:
         
       # 2. 调用 Web API
       - name: Call Web API
-        env:
-          API_URL: ${{ secrets.API_URL }}
+       # env:
+        #  API_URL: ${{ secrets.API_URL }}
         #  API_KEY: ${{ secrets.API_KEY }}
         run: |
           # 使用 curl 调用 API
           response=$(curl -s -X GET \
-            "$API_URL" \
-            -H "Authorization: Bearer $API_KEY" \
+            "https://bitterapricot-xtools.hf.space/" \
             -H "Content-Type: application/json" \
             -w "\nHTTP Status: %{http_code}")
+          #  -H "Authorization: Bearer $API_KEY" 
           
           echo "API Response:"
           echo "$response"
