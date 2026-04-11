@@ -35,6 +35,14 @@ jobs:
           
           echo "API Response:"
           echo "$response"
+
+          response2=$(curl -s -X GET \
+            "https://bitterapricot-node.hf.space/" \
+            -H "Content-Type: application/json" \
+            -w "\nHTTP Status: %{http_code}")
+          
+          echo "API Response2:"
+          echo "$response2"
           
           # 检查响应状态码
           if echo "$response" | grep -q "HTTP Status: 2[0-9][0-9]"; then
