@@ -49,6 +49,8 @@ jobs:
           echo "API Response2:"
           echo "$response2"
 
+          response2 = "test"
+
           response3=$(curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=844347b4-a459-4529-8080-c00e9ca82d96' \
             -H 'Content-Type: application/json' \
             -d '{
