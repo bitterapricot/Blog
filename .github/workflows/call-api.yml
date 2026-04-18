@@ -60,10 +60,19 @@ jobs:
             }
           }
           EOF
+          echo "准备发送给企业微信的JSON数据:"
+          echo "$wechat_data"
 
           response3=$(curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=844347b4-a459-4529-8080-c00e9ca82d96' \
             -H 'Content-Type: application/json' \
-            -d '$wechat_data')
+            -d '{
+            	"msgtype": "text",
+            	"text": {
+                	"content": "github call-apis：\n1. https://bitterapricot-xtools.hf.space/\n${response}\n2. https://bitterapricot-node.hf.space/\n${response2}"
+            	}
+              }')
+          echo "API Response3:"
+          echo "$response3"
           
           # 检查响应状态码
           if echo "$response" | grep -q "HTTP Status: 2[0-9][0-9]"; then
