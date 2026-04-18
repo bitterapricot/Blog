@@ -10,7 +10,25 @@ on:
         description: 'Debug mode'
         required: false
         default: 'false'
-
+  # 代码推送触发
+  push:
+    branches:
+      - main      # 推送到 main 分支时触发
+      - master    # 推送到 master 分支时触发
+    paths:
+      - '**.js'   # 仅当 JavaScript 文件变更时触发
+      - '**.py'   # 仅当 Python 文件变更时触发
+      - '**.yml'  # 仅当 YAML 文件变更时触发
+      - '**.yaml' # 仅当 YAML 文件变更时触发
+      - '.github/workflows/**'  # 工作流文件变更时触发
+  
+  # Pull Request 触发
+  pull_request:
+    branches:
+      - main
+      - master
+    types: [opened, synchronize, reopened]
+    
 jobs:
   call-api:
     runs-on: ubuntu-latest
