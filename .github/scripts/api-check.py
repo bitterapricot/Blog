@@ -84,7 +84,7 @@ def send_to_wechat(webhook_url, api_result):
 
 ### 响应详情：{json.dumps(api_result.get('data', {}), indent=2, ensure_ascii=False)}
 **检查时间**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-**触发方式**: {'手动触发' if os.getenv('TEST_MODE') == 'true' else '定时任务'}"""
+**触发方式**: {os.environ.get('GITHUB_EVENT_NAME')}"""
             }
         }
         
