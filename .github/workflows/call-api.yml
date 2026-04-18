@@ -48,6 +48,11 @@ jobs:
           
           echo "API Response2:"
           echo "$response2"
+          # 关键步骤：将两个 JSON 响应体转义，以便安全地放入另一个 JSON 字符串中
+          escaped_json1=$(echo -n "$json_body1" | jq -Rsa .)
+          escaped_json2=$(echo -n "$json_body2" | jq -Rsa .)
+          echo "$escaped_json1"
+          echo "$escaped_json2"
 
           response3=$(curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=844347b4-a459-4529-8080-c00e9ca82d96' \
             -H 'Content-Type: application/json' \
