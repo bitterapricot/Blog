@@ -49,7 +49,7 @@ jobs:
             -d '{
             	"msgtype": "text",
             	"text": {
-                	"content": "github call-apis\n%{response}\n %{response2}"
+                	"content": "github call-apis：\n1. https://bitterapricot-xtools.hf.space/\n$response\n2. https://bitterapricot-node.hf.space/\n$response2"
             	}
               }')
           
