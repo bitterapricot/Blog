@@ -74,7 +74,7 @@ jobs:
             -d '{
             	"msgtype": "text",
             	"text": {
-                	"content": "github ${{ github.event_name }} call-apis：\n1. https://bitterapricot-xtools.hf.space/\n $response\n2. https://bitterapricot-node.hf.space/\n $RESPONSE2_BODY"
+                	"content": "github ${{ github.event_name }} call-apis：\n1. https://bitterapricot-xtools.hf.space/\n $response\n2. https://bitterapricot-node.hf.space/\n ${{ RESPONSE2_BODY }}"
             	}
               }')
           echo "API Response3:"
