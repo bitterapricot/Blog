@@ -42,7 +42,16 @@ jobs:
         run: |
           echo "Current time: $(date)"
           echo "Test mode: ${{ github.event.inputs.test_mode || 'false' }}"
-
+          
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests
+          
       # 2. 调用 Web API
       - name: Call Web API
        # env:
@@ -79,6 +88,8 @@ jobs:
               }')
           echo "API Response3:"
           echo "$response3"
+          
+          python .github/scripts/api-check.py
           
           # 检查响应状态码
           if echo "$response" | grep -q "HTTP Status: 2[0-9][0-9]"; then
