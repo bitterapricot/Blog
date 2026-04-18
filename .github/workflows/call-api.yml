@@ -67,12 +67,14 @@ jobs:
           echo "API Response2:"
           echo "$response2"
 
+          RESPONSE2_BODY=$(echo "$RESPONSE")
+
           response3=$(curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=844347b4-a459-4529-8080-c00e9ca82d96' \
             -H 'Content-Type: application/json' \
             -d '{
             	"msgtype": "text",
             	"text": {
-                	"content": "github ${{ github.event_name }} call-apis：\n1. https://bitterapricot-xtools.hf.space/\n $response\n2. https://bitterapricot-node.hf.space/\n $response2"
+                	"content": "github ${{ github.event_name }} call-apis：\n1. https://bitterapricot-xtools.hf.space/\n $response\n2. https://bitterapricot-node.hf.space/\n $RESPONSE2_BODY"
             	}
               }')
           echo "API Response3:"
