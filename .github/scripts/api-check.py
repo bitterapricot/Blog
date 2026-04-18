@@ -82,7 +82,7 @@ def send_to_wechat(webhook_url, api_result):
 **API URL**: {api_result.get('url', 'N/A')}
 **HTTP 状态码**: {api_result.get('status', 'N/A')}
 
-### 响应详情：
+### 响应详情：{json.dumps(api_result.get('data', {}), indent=2, ensure_ascii=False)}
 **检查时间**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 **触发方式**: {'手动触发' if os.getenv('TEST_MODE') == 'true' else '定时任务'}"""
             }
