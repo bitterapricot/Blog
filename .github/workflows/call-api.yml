@@ -50,8 +50,8 @@ jobs:
           echo "$response2"
 
           # 关键步骤：将两个 JSON 响应体转义，以便安全地放入另一个 JSON 字符串中
-          escaped_json1=$(echo -n "$response")
-          escaped_json2=$(echo -n "$response2")
+          escaped_json1=$(echo "$response")
+          escaped_json2=$(echo "$response2")
           read -r -d '' wechat_data << EOF
           {
             "msgtype": "text",
