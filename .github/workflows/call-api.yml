@@ -19,7 +19,12 @@ jobs:
       # 1. 检出代码（可选，如果不需要代码可省略）
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+       
+      - name: Setup environment
+        run: |
+          echo "Current time: $(date)"
+          echo "Test mode: ${{ github.event.inputs.test_mode || 'false' }}"
+
       # 2. 调用 Web API
       - name: Call Web API
        # env:
@@ -49,7 +54,7 @@ jobs:
             -d '{
             	"msgtype": "text",
             	"text": {
-                	"content": "github call-apis：\n1. https://bitterapricot-xtools.hf.space/\n$response\n2. https://bitterapricot-node.hf.space/\n$response2"
+                	"content": "github call-apis：\n1. https://bitterapricot-xtools.hf.space/\n${response}\n2. https://bitterapricot-node.hf.space/\n${response2}"
             	}
               }')
           
