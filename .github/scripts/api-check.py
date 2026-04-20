@@ -137,7 +137,7 @@ def main():
     
     # 3. 发送到企业微信
     send_success = send_to_wechat(webhook_url, api_result)
-    api_result = call_api("https://bitterapricot-node.hf.space/", test_mode)
+    api_result = call_api("https://bitterapricot-node.hf.space/fastapi/", test_mode)
     send_success = send_to_wechat(webhook_url, api_result)
     
     if send_success and api_result.get('success'):
