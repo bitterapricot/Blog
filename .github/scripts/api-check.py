@@ -12,7 +12,7 @@ def call_api(api_url, hf_token, test_mode=False):
     try:
         headers = {
             "User-Agent": "GitHub-Actions-API-Checker/1.0",
-            "Authorization": f"Bearer {hf_token}",
+            #"Authorization": f"Bearer {hf_token}",
             "Content-Type": "application/json"
         }
         
