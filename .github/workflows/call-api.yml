@@ -60,7 +60,7 @@ jobs:
         run: |
           # 使用 curl 调用 API
           response=$(curl -s -X GET \
-            "https://bitterapricot-xtools.hf.space/" \
+            "https://bitterapricot-xtools.hf.space/appfast/info" \
             -H "Content-Type: application/json" \
             -w "\nHTTP Status: %{http_code}")
           #  -H "Authorization: Bearer $API_KEY" 
@@ -69,7 +69,7 @@ jobs:
           echo "$response"
 
           response2=$(curl -s -X GET \
-            "https://bitterapricot-node.hf.space/fastapi/" \
+            "https://bitterapricot-node.hf.space/appfast/info" \
             -H "Content-Type: application/json" \
             -w "\nHTTP Status: %{http_code}")
           
