@@ -116,7 +116,7 @@ def send_to_wechat(webhook_url, api_result):
 def main():
     # 从环境变量获取配置
     HF_TOKEN = "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"
-    api_url = "https://bitterapricot-xtools.hf.space/appfask/info/" #os.getenv('API_URL')
+    api_url = "https://bitterapricot-xtools.hf.space/appfast/info/" #os.getenv('API_URL')
     webhook_url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=844347b4-a459-4529-8080-c00e9ca82d96" #os.getenv('WECHAT_WEBHOOK_URL')
     test_mode = os.getenv('TEST_MODE', 'false')
     
@@ -140,10 +140,10 @@ def main():
     # 3. 发送到企业微信
     send_success = send_to_wechat(webhook_url, api_result)
     
-    api_result = call_api("https://bitterapricot-node.hf.space/appfask/info/", HF_TOKEN, test_mode)
+    api_result = call_api("https://bitterapricot-node.hf.space/appfast/info/", HF_TOKEN, test_mode)
     send_success = send_to_wechat(webhook_url, api_result)
 
-    api_result = call_api("https://bitterapricot-priapp.hf.space/appfask/info/", HF_TOKEN, test_mode)
+    api_result = call_api("https://bitterapricot-priapp.hf.space/appfast/info/", HF_TOKEN, test_mode)
     send_success = send_to_wechat(webhook_url, api_result)    
     
     if send_success and api_result.get('success'):
