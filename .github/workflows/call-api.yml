@@ -55,7 +55,7 @@ jobs:
       # 2. 调用 Web API
       - name: Call Web API
         env:
-        #  API_URL: ${{ secrets.API_URL }}
+          WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
           HUGGINGFACE_READ_ACCESS_TOKEN: ${{ secrets.HUGGINGFACE_READ_ACCESS_TOKEN }}
         run: |
           # 使用 curl 调用 API
@@ -76,7 +76,7 @@ jobs:
           echo "API Response2:"
           echo "$response2"
 
-          response3=$(curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=844347b4-a459-4529-8080-c00e9ca82d96' \
+          response3=$(curl "$WECHAT_WEBHOOK_URL" \
             -H 'Content-Type: application/json' \
             -d '{
             	"msgtype": "text",
