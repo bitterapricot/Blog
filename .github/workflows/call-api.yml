@@ -54,9 +54,9 @@ jobs:
           
       # 2. 调用 Web API
       - name: Call Web API
-       # env:
+        env:
         #  API_URL: ${{ secrets.API_URL }}
-        #  API_KEY: ${{ secrets.API_KEY }}
+          HUGGINGFACE_READ_ACCESS_TOKEN: ${{ secrets.HUGGINGFACE_READ_ACCESS_TOKEN }}
         run: |
           # 使用 curl 调用 API
           response=$(curl -s -X GET \
