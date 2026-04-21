@@ -115,7 +115,7 @@ def send_to_wechat(webhook_url, api_result):
 
 def main():
     # 从环境变量获取配置
-    HF_TOKEN = os.genenv("HUGGINGFACE_READ_ACCESS_TOKEN")
+    HF_TOKEN = os.getnenv("HUGGINGFACE_READ_ACCESS_TOKEN")
     api_url = "https://bitterapricot-xtools.hf.space/appfast/info" #os.getenv('API_URL')
     webhook_url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=844347b4-a459-4529-8080-c00e9ca82d96" #os.getenv('WECHAT_WEBHOOK_URL')
     test_mode = os.getenv('TEST_MODE', 'false')
