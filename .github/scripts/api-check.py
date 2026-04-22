@@ -144,7 +144,16 @@ def main():
     send_success = send_to_wechat(webhook_url, api_result)
 
     api_result = call_api("https://bitterapricot-priapp.hf.space/appfast/info", HF_TOKEN, test_mode)
-    send_success = send_to_wechat(webhook_url, api_result)    
+    send_success = send_to_wechat(webhook_url, api_result) 
+
+    api_result = call_api("https://bitterapricot-fastapi.hf.space/appfast/info", HF_TOKEN, test_mode)
+    send_success = send_to_wechat(webhook_url, api_result)   
+    
+    api_result = call_api("https://bitterapricot-flaskapi.hf.space/appfast/info", HF_TOKEN, test_mode)
+    send_success = send_to_wechat(webhook_url, api_result)   
+    
+    api_result = call_api("https://bitterapricot-napi.hf.space/appfast/info", HF_TOKEN, test_mode)
+    send_success = send_to_wechat(webhook_url, api_result)   
     
     if send_success and api_result.get('success'):
         print("🎉 任务完成！")
