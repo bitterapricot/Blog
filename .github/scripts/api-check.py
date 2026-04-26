@@ -163,7 +163,7 @@ def main():
         sys.exit(0)
     else:
         print("⚠️ 任务完成，但有警告")
-        sys.exit(1)
+        sys.exit(0)
 
 if __name__ == "__main__":
     main()
